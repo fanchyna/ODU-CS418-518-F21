@@ -1,0 +1,95 @@
+*
+{
+    background-color: aquamarine;
+}
+
+div
+{
+    width: 48vw;
+    height: 90vh;
+    background-color: white;
+}
+
+#top
+{
+    height: 20px;
+    background-color: aquamarine;
+}
+
+button
+{
+    background-color: whitesmoke;
+}
+
+form
+{
+    float: right;
+    padding-right: 30vw;
+}
+
+input
+{
+    background-color: white;
+}
+
+#left
+{
+    float: left;
+    border: 2px solid black;
+}
+
+#right
+{
+    float: right;
+    border: 2px solid black;
+}
+
+.table
+{
+    display: table;
+    height: 2vh;
+    background-color: darkturquoise;
+}
+
+p
+{
+    display: inline;
+    padding: 0 10% 0 10%;
+    background-color: darkturquoise;
+}
+
+.tab-content
+{
+    display: none;
+    height: 86vh;
+}
+
+.tab-content:target
+{
+    display: block;
+}
+
+p>a
+{
+    background-color: darkturquoise;
+}
+
+a:link
+{
+    text-decoration: none;
+}
+
+a:visited
+{
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
+a:active
+{
+    text-decoration: none;
+}

@@ -1,0 +1,82 @@
+*
+{
+    background-color: aquamarine;
+}
+
+div
+{
+    width: 47vw;
+    height: 90vh;
+    background-color: white;
+}
+
+#top
+{
+    height: 20px;
+    background-color: aquamarine;
+    padding-bottom: 1vh;
+}
+
+button
+{
+    background-color: whitesmoke;
+}
+
+input
+{
+    background-color: white;
+}
+
+form
+{
+    float: right;
+    padding-right: 30vw;
+}
+
+form#info
+{
+    background-color: white;
+}
+
+form#info>button, form#info>input
+{
+    margin-bottom: 1vh;
+}
+
+.table
+{
+    display: table;
+    margin: 0 auto;
+    height: 4vh;
+}
+
+.tab-content
+{
+    display: none;
+    height: 86vh;
+}
+
+.tab-content:target
+{
+    display: block;
+}
+
+a:link
+{
+    text-decoration: none;
+}
+
+a:visited
+{
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
+a:active
+{
+    text-decoration: none;
+}
