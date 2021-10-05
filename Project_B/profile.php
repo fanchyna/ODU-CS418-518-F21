@@ -31,7 +31,7 @@
 	</head>
 
 	<div class="home-container">
-		<form action='main.php'>
+		<form action='index.php'>
 			<button class='home-button' onclick='openLogin()'>Home</button>
 		</form>
 	</div>

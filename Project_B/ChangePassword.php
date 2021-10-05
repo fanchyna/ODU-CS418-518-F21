@@ -13,7 +13,7 @@
     	$sql = "UPDATE userprofile SET password='" . $pass . "' WHERE email='" . $user . "'";
     	$qr = $conn->query($sql);
     	if($qr) {
-    		header('Location:main.php');
+    		header('Location:index.php');
     		exit;
     	}
     }

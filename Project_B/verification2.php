@@ -10,6 +10,6 @@
     $_SESSION['userlevel'] = null;
     $_SESSION['is_logged_in'] = null;
 
-    header("Location:main.php");
+    header("Location:index.php");
 	exit;
 ?>

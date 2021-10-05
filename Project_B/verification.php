@@ -26,13 +26,14 @@
     			$_SESSION['approved'] = $user['approved'];
     			$_SESSION['userlevel'] = $user['userlevel'];
     			$_SESSION['is_logged_in'] = true;
-    			header("Location:main.php");
+    			header("Location:index.php");
     			exit;
     		}
     	}
 	}
 
 	if(isset($_POST['login_email']) && isset($_POST['login_password'])) {
+		$email_sent = false;
 		$email = $_POST['login_email'];
     	$password = $_POST['login_password'];
     	$tableName = "userprofile";
@@ -41,8 +42,8 @@
 
     	$qr = $conn->query($sql);
     	if($qr) {
-    		$user = $qr->fetch_assoc();
-    		if($user){
+    		if($qr->num_rows > 0){
+    			$user = $qr->fetch_assoc();
     			$_SESSION['fname'] = $user['firstname'];
     			$_SESSION['lname'] = $user['lastname'];
     			$_SESSION['email'] = $user['email'];
@@ -54,21 +55,21 @@
     			if(strcmp(hash('sha256', $password), $_SESSION['password']) != 0) {
     				echo 2;
     				$_SESSION['is_logged_in'] = false;
-    				header("Location:main.php");
+    				header("Location:index.php");
     				exit;
     			}
 
     			if($_SESSION['approved'] == 0) {
     				echo 3;
     				$_SESSION['is_logged_in'] = false;
-    				header("Location:main.php");
+    				header("Location:index.php");
     				exit;
     			}
 
     			if($_SESSION['verified'] == 0) {
     				echo 4;
     				$_SESSION['is_logged_in'] = false;
-    				header("Location:main.php");
+    				header("Location:index.php");
     				exit;
     			}
 					$to = $user['email'];
@@ -82,13 +83,15 @@
 
     				';
     				if(mail($to, $subject, $message, $from))
-    					echo -1;	
+    					$email_sent = true;
     		}
     	}
-	} else {
-    	echo 6;
-    	$_SESSION['is_logged_in'] = false;
-    	header("Location:main.php");
+	}
+
+	if(!$email_sent) {
+		echo 6;
+   		$_SESSION['is_logged_in'] = false;
+   		header("Location:index.php");
     	exit;
 	}
 ?>

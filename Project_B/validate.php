@@ -17,6 +17,6 @@
         }
     }
 
-    header('Location:main.php');
+    header('Location:index.php');
     exit;
 ?>
