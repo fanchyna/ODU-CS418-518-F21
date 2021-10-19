@@ -3,4 +3,4 @@ Name: Venugopal Nagandla
 Course: Web Programming
 
 
-Github URl: https://github.com/VG1234/ODU-CS418-518-F21/tree/main/laravel-project1
+Github URl: https://github.com/VG1234/ODU-CS418-518-G1
