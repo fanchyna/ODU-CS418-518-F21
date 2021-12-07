@@ -1,0 +1,128 @@
+{
+	"base_app_url": "http://localhost:5511",
+	"email_from": "simonazhangzy@gmail.com",
+	"email_to": "szhan005@odu.edu",
+	"smtp_hostname": "localhost",
+	"smtp_port": 25,
+	"secret_key": "",
+	
+	"log_dir": "logs",
+	"log_filename": "[component].log",
+	"log_columns": ["hostname", "pid", "component", "category", "code", "msg", "data"],
+	"log_archive_path": "logs/archives/[yyyy]/[mm]/[dd]/[filename]-[yyyy]-[mm]-[dd].log.gz",
+	"log_crashes": true,
+	"debug_level": 5,
+	"maintenance": "04:00",
+	"expiration": "10 years",
+	"list_row_max": 10000,
+	"new_server_stale_threshold": 3600,
+	"monitor_self": true,
+	
+	"hostname_display_strip": "\\.[\\w\\-]+\\.\\w+$",
+	"alert_web_hook": "",
+	
+	"system_web_hooks": {
+		"server_add": true,
+		"warning": true
+	},
+	
+	"client": {
+		"name": "Server Monitor Portal",
+		"debug": 1,
+		"privilege_list": [
+			{ "id": "admin", "title": "Administrator" }
+		],
+		"extra_server_info": {
+			"title": "Kernel Version",
+			"source": "[os/platform] [os/kernel]"
+		},
+		"first_year": 2020,
+		"max_legend_size": 16,
+		
+		"graph_overrides": {
+			"all_sizes": {
+				"stroke.curve": "smooth",
+				"markers.style": "hollow",
+				"title.align": "center",
+				"grid.show": true
+			},
+			"full": {
+				"chart.height": 400,
+				"title.fontSize": 25,
+				"stroke.width": 3
+			},
+			"half": {
+				"chart.height": 400,
+				"title.fontSize": 15,
+				"stroke.width": 2
+			},
+			"third": {
+				"chart.height": 200,
+				"title.fontSize": 20,
+				"stroke.width": 2
+			}
+		}
+	},
+	
+	"Storage": {
+		"engine": "Filesystem",
+		"list_page_size": 100,
+		"hash_page_size": 100,
+		"concurrency": 32,
+		"transactions": true,
+		"trans_auto_recover": true,
+		"cache_key_match": "^(global/|users/|sessions/)",
+		"log_event_types": { "get": 1, "put": 1, "head": 1, "delete": 1, "expire_set": 1, "perf_min": 1, "maint": 1 },
+		
+		"Filesystem": {
+			"base_dir": "data",
+			"key_namespaces": true,
+			"cache": {
+				"enabled": true,
+				"maxItems": 1000,
+				"maxBytes": 10485760
+			}
+		}
+	},
+	
+	"WebServer": {
+		"http_port": 5511,
+		"http_htdocs_dir": "htdocs",
+		"http_max_upload_size": 104857600,
+		"http_static_ttl": 3600,
+		"http_static_index": "index.html",
+		"http_server_signature": "SMP 1.0",
+		"http_gzip_text": true,
+		"http_timeout": 30,
+		"http_max_connections": 1024,
+		"http_max_concurrent_requests": 256,
+		"http_recent_requests": 0,
+		"http_log_requests": true,
+		"http_regex_json": "(text|javascript|js|json)",
+		"http_response_headers": {
+			"Access-Control-Allow-Origin": "*"
+		},
+		
+		"https": false,
+		"https_port": 5522,
+		"https_force": false,
+		"https_timeout": 30,
+		"https_header_detect": {
+			"Front-End-Https": "^on$",
+			"X-Url-Scheme": "^https$",
+			"X-Forwarded-Protocol": "^https$",
+			"X-Forwarded-Proto": "^https$"
+		}
+	},
+	
+	"User": {
+		"session_expire_days": 30,
+		"free_accounts": false,
+		"sort_global_users": true,
+		"use_bcrypt": true,	
+		"default_privileges": {
+			"admin": 0
+		}
+	}
+	
+}
